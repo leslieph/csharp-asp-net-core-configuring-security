@@ -16,7 +16,7 @@ namespace ConferenceTracker.Controllers
 
         public PresentationsController(IPresentationRepository presentationRepository, 
             ISpeakerRepository speakerRepository,
-            ILogger logger)
+            ILogger<PresentationsController> logger)
         {
             _presentationRepository = presentationRepository;
             _speakerRepository = speakerRepository;
@@ -73,7 +73,7 @@ namespace ConferenceTracker.Controllers
 
             if (id == null)
             {
-                _logger.LogInformation("Presentation id was null.");
+                _logger.LogError("Presentation id was null.");
                 return NotFound();
             }
 
